@@ -1,58 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles.css">
-  <title>Hangman Game</title>
-</head>
-<body>
-  <h1 class="pageTitle">Play Hangman</h1>
-  <div class="mainContainer">
-    <section class="hangmanImage">
-      <h3>The hangman image will go here.</h3>
-      <img src="" alt="">
-    </section>
-    <div class="playContainer">
-      <section class="scoreBoard">
-        <div id="letters">
-          <!-- scorboard.wordArr -->
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Hangman Game</title>
+  </head>
+  <body>
+    <!-- the border container is for the yellow outermost border -->
+    <div class="borderContainer">
+      <!-- the main container holds the sub container and score board div -->
+      <div class="mainContainer">
+        <!-- the sub container holds the image section and play container -->
+        <div class="subContainer">
+          <!-- image section -->
+          <section class="hangmanImage">
+            <img id= "hangmanPic" src="./img/start.png" alt="hangman desert  scene">
+          </section>
+          <!-- the play container holds the heading, alphabet div and clear board button -->
+          <section class="playContainer">
+            <p class="pageTitle">Take Your Guess</p>
+            <!-- the alphabet div holds the buttons of letters -->
+            <div class="alphabet">
+              <!-- inside btnClick(): hangman(), updateScoreboard() -->
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('A')">A</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('B')">B</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('C')">C</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('D')">D</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('E')">E</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('F')">F</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('G')">G</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('H')">H</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('I')">I</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('J')">J</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('K')">K</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('L')">L</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('M')">M</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('N')">N</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('O')">O</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('P')">P</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('Q')">Q</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('R')">R</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('S')">S</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('T')">T</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('U')">U</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('V')">V</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('W')">W</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('X')">X</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('Y')">Y</button>
+              <button type="button" class="letterBtn hoverClass" onclick="btnClick('Z')">Z</button>
+            </div>
+            <button type="button" id="clearBoardBtn" onclick="clearBoard(true)">New Game</button>  
+          </section>
         </div>
-        <button id="clearBoardBtn" onclick="clearBoard()">Clear Board</button>
-      </section>
-      <section class="alphabet">
-        <!-- inside btnClick: hangman(), updateScoreboard() -->
-        <button class="letter" onclick="btnClick('A')">A</button>
-        <button class="letter" onclick="btnClick('B')">B</button>
-        <button class="letter" onclick="btnClick('C')">C</button>
-        <button class="letter" onclick="btnClick('D')">D</button>
-        <button class="letter" onclick="btnClick('E')">E</button>
-        <button class="letter" onclick="btnClick('F')">F</button>
-        <button class="letter" onclick="btnClick('G')">G</button>
-        <button class="letter" onclick="btnClick('H')">H</button>
-        <button class="letter" onclick="btnClick('I')">I</button>
-        <button class="letter" onclick="btnClick('J')">J</button>
-        <button class="letter" onclick="btnClick('K')">K</button>
-        <button class="letter" onclick="btnClick('L')">L</button>
-        <button class="letter" onclick="btnClick('M')">M</button>
-        <button class="letter" onclick="btnClick('N')">N</button>
-        <button class="letter" onclick="btnClick('O')">O</button>
-        <button class="letter" onclick="btnClick('P')">P</button>
-        <button class="letter" onclick="btnClick('Q')">Q</button>
-        <button class="letter" onclick="btnClick('R')">R</button>
-        <button class="letter" onclick="btnClick('S')">S</button>
-        <button class="letter" onclick="btnClick('T')">T</button>
-        <button class="letter" onclick="btnClick('U')">U</button>
-        <button class="letter" onclick="btnClick('V')">V</button>
-        <button class="letter" onclick="btnClick('W')">W</button>
-        <button class="letter" onclick="btnClick('X')">X</button>
-        <button class="letter" onclick="btnClick('Y')">Y</button>
-        <button class="letter" onclick="btnClick('Z')">Z</button>
-      </section>
+        <!-- the score board div holds the word tracker -->
+        <div class="scoreBoard">
+          <p id="guessedLetters">
+            <!-- scorboard.wordArr -->
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <script src="./main.js"></script>
-</body>
+  
+    <script src="./main.js"></script>
+  </body>
 </html>
